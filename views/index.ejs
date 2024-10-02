@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Posts</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Quara</h1>
+
+    <% for(let post of posts) { %>
+        <div class="post">
+            <h2 class="user"> <%= post.username %> </h2>
+            <h4 class="comments"> <%= post.comments %> </h4>
+            <a href="/posts/<%=post.id%>">View in Detail</a>
+            <a class="updateBtn" href="/posts/<%=post.id%>/update">Update</a>
+
+            <form method="post", action="/posts/<%=post.id%>?_method=DELETE">
+                <button class="DeleteBtn">Delete</button>
+            </form>
+
+        </div>
+    <% } %>
+    <a href="/posts/new"> click to add a new post</a>
+</body>
+</html>
